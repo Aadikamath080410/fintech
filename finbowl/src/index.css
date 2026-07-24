@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-sidebar-from: #2a1f5e;
+  --color-sidebar-to: #3d2d7a;
+  --color-sidebar-active: rgba(255, 255, 255, 0.12);
+  --color-sidebar-hover: rgba(255, 255, 255, 0.08);
+
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #f5f3ff;
+
+  --color-surface: #f8f9fb;
+  --color-border: #e5e7eb;
+  --color-border-light: #f0f1f3;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+
+  --color-status-draft-bg: #f3f4f6;
+  --color-status-draft-text: #6b7280;
+  --color-status-submitted-bg: #ecfdf5;
+  --color-status-submitted-text: #059669;
+  --color-status-verified-bg: #eff6ff;
+  --color-status-verified-text: #2563eb;
+  --color-status-audited-bg: #f5f3ff;
+  --color-status-audited-text: #7c3aed;
+  --color-status-processed-bg: #fef3c7;
+  --color-status-processed-text: #d97706;
+
+  --color-success: #16a34a;
+  --color-link: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Drawer slide-in animation */
+aside.fixed.right-0 {
+  animation: slideInRight 0.22s ease-out;
+}
